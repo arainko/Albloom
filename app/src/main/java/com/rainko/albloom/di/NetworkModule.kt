@@ -12,7 +12,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-typealias APIKey = String
 
 @InstallIn(ApplicationComponent::class)
 @Module
@@ -28,7 +27,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiKey(@ApplicationContext context: Context): APIKey =
+    fun provideApiKey(@ApplicationContext context: Context): String =
         context.resources.getString(R.string.lastfmApiKey)
 
 }

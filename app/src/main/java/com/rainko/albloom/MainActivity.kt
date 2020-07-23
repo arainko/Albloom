@@ -18,21 +18,11 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val textView: TextView by lazy { findViewById<TextView>(R.id.test) }
-
     @Inject
     lateinit var lastfmApiManager: LastFmApiManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        GlobalScope.launch {
-            val result = lastfmApiManager.getAlbum("Gorillaz", "Gorillaz")
-            launch(Dispatchers.Main) {
-                textView.text = result.toString()
-            }
-        }
-
     }
 }

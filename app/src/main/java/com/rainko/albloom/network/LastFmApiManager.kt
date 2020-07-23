@@ -1,13 +1,13 @@
 package com.rainko.albloom.network
 
-import com.rainko.albloom.di.APIKey
 import com.rainko.albloom.entities.network.Album
+import com.rainko.albloom.network.LastfmAPI.*
 import retrofit2.await
 import javax.inject.Inject
 
 class LastFmApiManager @Inject constructor(
     private val lastfmAPI: LastfmAPI,
-    private val apiKey: APIKey
+    private val apiKey: String
 ) {
 
     suspend fun getAlbum(artistName: String, albumName: String): Album {
@@ -15,8 +15,10 @@ class LastFmApiManager @Inject constructor(
             "artist" to artistName,
             "album" to albumName
         )
-        val methodParameters = generateMethodParameters("album.getInfo", params)
-        return lastfmAPI.getAlbum(methodParameters).await().album
+        val methodParameters = generateMethodParameters(Methods.Album.GET_INFO, params)
+        return lastfmAPI.getAlbum(methodParameters)
+            .await()
+            .album
     }
 
     private fun generateMethodParameters(
