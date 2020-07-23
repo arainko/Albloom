@@ -1,7 +1,10 @@
-package com.rainko.albloom.entities
+package com.rainko.albloom.entities.network
 
 
 import com.google.gson.annotations.SerializedName
+import com.rainko.albloom.entities.network.Artist
+import com.rainko.albloom.entities.network.Attr
+import com.rainko.albloom.entities.network.Streamable
 
 data class Track(
     @SerializedName("artist")
