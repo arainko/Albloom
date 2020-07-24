@@ -1,4 +1,4 @@
-package com.rainko.albloom.entities.network
+package com.rainko.albloom.network.json
 
 
 import com.google.gson.annotations.SerializedName

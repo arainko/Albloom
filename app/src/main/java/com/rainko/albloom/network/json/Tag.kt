@@ -1,11 +1,9 @@
-package com.rainko.albloom.entities.network
+package com.rainko.albloom.network.json
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Artist(
-    @SerializedName("mbid")
-    val mbid: String,
+data class Tag(
     @SerializedName("name")
     val name: String,
     @SerializedName("url")

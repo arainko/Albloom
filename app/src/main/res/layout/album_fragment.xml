@@ -6,6 +6,7 @@
     tools:context=".fragments.AlbumFragment">
 
     <TextView
+        android:id="@+id/testText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Hello" />

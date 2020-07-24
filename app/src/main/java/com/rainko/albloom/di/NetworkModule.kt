@@ -2,7 +2,7 @@ package com.rainko.albloom.di
 
 import android.content.Context
 import com.rainko.albloom.R
-import com.rainko.albloom.network.LastfmAPI
+import com.rainko.albloom.network.abstracts.LastfmAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

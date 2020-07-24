@@ -1,8 +1,7 @@
-package com.rainko.albloom.entities.network
+package com.rainko.albloom.network.json
 
 
 import com.google.gson.annotations.SerializedName
-import com.rainko.albloom.entities.network.Tag
 
 data class Tags(
     @SerializedName("tag")
