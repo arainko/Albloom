@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.rainko.albloom.AlbumViewModel
 import com.rainko.albloom.R
 import com.rainko.albloom.databinding.AlbumFragmentBinding
+import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -27,17 +28,22 @@ class AlbumFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = AlbumFragmentBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    ): View? = AlbumFragmentBinding.inflate(inflater, container, false).run {
+            _binding = this
+            root
+        }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.viewModelScope.launch {
-            val searchRes = viewModel.searchAlbum("gorillaz")
+            val searchRes = viewModel.getAlbum("A Moon Shaped Pool", "Radiohead")
             launch(Dispatchers.Main) {
-                binding.testText.text = searchRes.toString()
+                Picasso.get()
+                    .load(searchRes.image[4].url)
+                    .resize(600, 600)
+                    .into(binding.image)
+//                binding.testText.text = searchRes.tracks.track.toString()
             }
         }
     }

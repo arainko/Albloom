@@ -5,10 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".fragments.AlbumFragment">
 
-    <TextView
-        android:id="@+id/testText"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
+
+<!--        <TextView-->
+<!--            android:id="@+id/testText"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Hello" />-->
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </ScrollView>
+
 
 </FrameLayout>

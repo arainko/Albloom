@@ -13,4 +13,5 @@ class AlbumViewModel @ViewModelInject constructor(
 ) : ViewModel() {
 
     suspend fun searchAlbum(album: String): List<Album> = webService.searchForAlbum(album)
+    suspend fun getAlbum(album: String, artist: String): Album = webService.getAlbum(artist, album)
 }
