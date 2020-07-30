@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
+import androidx.viewbinding.ViewBinding
+import com.bumptech.glide.Glide
 import com.rainko.albloom.AlbumViewModel
-import com.rainko.albloom.R
 import com.rainko.albloom.databinding.AlbumFragmentBinding
-import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -36,16 +35,24 @@ class AlbumFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.viewModelScope.launch {
-            val searchRes = viewModel.getAlbum("A Moon Shaped Pool", "Radiohead")
-            launch(Dispatchers.Main) {
-                Picasso.get()
-                    .load(searchRes.image[4].url)
-                    .resize(600, 600)
-                    .into(binding.image)
-//                binding.testText.text = searchRes.tracks.track.toString()
+
+        binding.getAlbumCoverButton.setOnClickListener {
+            viewModel.viewModelScope.launch {
+                val searchRes = viewModel.getAlbum(
+                    binding.albumNameEditText.text.toString(),
+                    binding.artistNameEditText.text.toString()
+                )
+                launch(Dispatchers.Main) {
+                    Glide.with(this@AlbumFragment)
+                        .load(searchRes.image[3].url)
+                        .override(600)
+                        .thumbnail(0.1f)
+                        .into(binding.image)
+                }
             }
         }
+
+
     }
 
     override fun onDestroyView() {
