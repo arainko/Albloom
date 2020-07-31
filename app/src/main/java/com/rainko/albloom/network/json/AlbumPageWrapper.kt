@@ -3,7 +3,7 @@ package com.rainko.albloom.network.json
 
 import com.google.gson.annotations.SerializedName
 
-data class AlbumMatches(
-    @SerializedName("album")
-    val album: List<Album>
+data class AlbumPageWrapper(
+    @SerializedName("albums")
+    val albumPage: AlbumPage
 )

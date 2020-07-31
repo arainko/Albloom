@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Albums"
+        android:icon="@drawable/ic_album" />
+    <item android:title="Artists"
+        android:icon="@drawable/ic_artist" />
+    <item android:title="Tracks"
+        android:icon="@drawable/ic_track" />
+</menu>

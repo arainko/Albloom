@@ -3,7 +3,9 @@ package com.rainko.albloom.network.json
 
 import com.google.gson.annotations.SerializedName
 
-data class NetworkAlbum(
+data class AlbumPage(
     @SerializedName("album")
-    val album: Album
+    val albumList: List<Album>,
+    @SerializedName("@attr")
+    val pageAttributes: PageAttributes
 )

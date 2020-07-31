@@ -4,14 +4,13 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.rainko.albloom.network.json.Album
-import com.rainko.albloom.network.impl.LastFmWebService
+import com.rainko.albloom.network.impl.LastFmService
 
 class AlbumViewModel @ViewModelInject constructor(
     @Assisted private val savedStateHandle: SavedStateHandle,
-    private val webService: LastFmWebService
+    private val service: LastFmService
 ) : ViewModel() {
 
-    suspend fun searchAlbum(album: String): List<Album> = webService.searchForAlbum(album)
-    suspend fun getAlbum(album: String, artist: String): Album = webService.getAlbum(artist, album)
+    suspend fun searchAlbum(album: String): List<Album> = service.searchForAlbum(album)
+    suspend fun getAlbum(album: String, artist: String): Album = service.getAlbumInfo(artist, album)
 }

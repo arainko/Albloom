@@ -7,7 +7,7 @@ data class Track(
     @SerializedName("artist")
     val artist: Artist,
     @SerializedName("@attr")
-    val attr: Attr,
+    val trackRank: TrackRank,
     @SerializedName("duration")
     val duration: String,
     @SerializedName("name")

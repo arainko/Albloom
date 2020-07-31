@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Artist(
     @SerializedName("mbid")
-    val mbid: String,
+    val musicbrainzId: String,
     @SerializedName("name")
     val name: String,
     @SerializedName("url")

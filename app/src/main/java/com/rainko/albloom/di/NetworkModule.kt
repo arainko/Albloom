@@ -2,7 +2,7 @@ package com.rainko.albloom.di
 
 import android.content.Context
 import com.rainko.albloom.R
-import com.rainko.albloom.network.abstracts.LastfmAPI
+import com.rainko.albloom.network.abstracts.LastfmApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,11 +19,11 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideLastfmAPIManager(): LastfmAPI = Retrofit.Builder()
+    fun provideLastfmAPIManager(): LastfmApi = Retrofit.Builder()
             .baseUrl("http://ws.audioscrobbler.com/2.0/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(LastfmAPI::class.java)
+            .create(LastfmApi::class.java)
 
     @Singleton
     @Provides
